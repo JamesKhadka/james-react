@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/james-react/static/css/main.95fb509e.css",
+    "main.js": "/james-react/static/js/main.38215e66.js",
+    "static/js/453.c547e74e.chunk.js": "/james-react/static/js/453.c547e74e.chunk.js",
+    "index.html": "/james-react/index.html",
+    "main.95fb509e.css.map": "/james-react/static/css/main.95fb509e.css.map",
+    "main.38215e66.js.map": "/james-react/static/js/main.38215e66.js.map",
+    "453.c547e74e.chunk.js.map": "/james-react/static/js/453.c547e74e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.95fb509e.css",
+    "static/js/main.38215e66.js"
+  ]
+}
