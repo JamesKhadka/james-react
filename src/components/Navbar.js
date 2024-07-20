@@ -1,68 +1,68 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           WalkWise
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
 
-              {/* a-> a and href->to for react-router  which helps to jump navbar component without reload the page smoothly*/}
-              <a className="nav-a active" aria-current="page" href="#">
+              {/* a-> a and to->to for react-router  which helps to jump navbar component without reload the page smoothly*/}
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-a" href="#">
+              <Link className="nav-link" to="/Products">
                 Products
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-a" href="#">
+              <Link className="nav-link" to="/About">
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item dropdown">
-              <a
-                className="nav-a dropdown-toggle"
-                href="/"
+              <Link
+                className="nav-link dropdown-toggle"
+                to="/"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 About StartUP
-              </a>
+              </Link>
               <ul className="dropdown-menu">
 
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="/Most Selling">
                     Most Selling
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="/ Founders">
                     Founders
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="/ Investors">
                     Investors
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>

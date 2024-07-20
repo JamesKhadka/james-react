@@ -1,10 +1,10 @@
 import "./App.css";
-// import About from "./components/About";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
 import React, { useState } from 'react';
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 
@@ -48,33 +48,33 @@ function App() {
   return (
     <>
       {/* due to the import of react-router packages SPA (single page application can be made which render all the packages and when we request service it does not take time to render html page)  <Route exact path="/" element= gives the exact path*/}
-      {/* <BrowserRouter> 
+      <BrowserRouter>
         <Navbar title="WalkWise" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-4" mode={mode}>
-           <Routes>
-            <Route exact path="/about" element={<About />}></Route> 
+          <Routes>
+            <Route exact path="/about" element={<About mode={mode} />}></Route>
             <Route
               exact path="/" element={
-                <TextForm showAlert={showAlert} heading="Enter Text to analyze " mode={mode} />
+                <TextForm showAlert={showAlert} heading="WalkWise-Word and Character counter " mode={mode} />
               }
             ></Route>
           </Routes>
         </div>
-      </BrowserRouter> */}
+      </BrowserRouter>
 
       {/* toggle and mode helps to change the color durind switching in dark mode */}
-      <Navbar title="WalkWise" mode={mode} toggleMode={toggleMode} />
+      {/* <Navbar title="WalkWise" mode={mode} toggleMode={toggleMode} /> */}
       {/* alert */}
-      <Alert alert={alert} />
+      {/* <Alert alert={alert} /> */}
 
-      <div className="container mb-3">
-        <TextForm showAlert={showAlert} heading="Enter the text to analyze below:" mode={mode} />
-        {/* <About /> */}
+      {/* <div className="container mb-3"> */}
+      {/* <TextForm showAlert={showAlert} heading="Enter the text to analyze below:" mode={mode} /> */}
+      {/* <About /> */}
 
 
 
-      </div>
+      {/* </div> */}
 
     </>
   );

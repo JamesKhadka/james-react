@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+
   //convert text into upper case
   const handleUpClick = () => {
     //console.log("Upper case was clicked" + text);
@@ -30,6 +31,7 @@ export default function TextForm(props) {
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied to Clipboard", "success");
 
     // .then(() => {
@@ -70,25 +72,26 @@ export default function TextForm(props) {
             <textarea
               className="form-control"
               value={text}
-              onChange={handleOnChange} style={{ backgroundColor: props.mode === 'dark' ? 'gray' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}
+              onChange={handleOnChange} style={{ backgroundColor: props.mode === 'dark' ? '#363a76' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}
               id="myBox"
               rows="8"
             ></textarea>
           </div>
-          <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+          {/* disabled help to disable butten if there is no text in textarea */}
+          <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>
             <b> convert to upperCase</b>
           </button>
-          <button className="btn btn-info mx-2" onClick={handleLoClick}>
+          <button disabled={text.length === 0} className="btn btn-info mx-1 my-1" onClick={handleLoClick}>
             <b>LConvert to lowercase </b>
           </button>
 
-          <button className="btn btn-danger mx-2" onClick={handleClearClick}>
+          <button disabled={text.length === 0} className="btn btn-danger mx-1 my-1" onClick={handleClearClick}>
             <b>clear Text </b>
           </button>
-          <button className="btn btn-success mx-2" onClick={handleCopyClick}>
+          <button disabled={text.length === 0} className="btn btn-success mx-1 my-1" onClick={handleCopyClick}>
             <b>copy Text </b>
           </button>
-          <button className="btn btn-success mx-2" onClick={handleExtraSpaceClick}>
+          <button disabled={text.length === 0} className="btn btn-success mx-1 my-1" onClick={handleExtraSpaceClick}>
             <b>Remove extra space </b>
           </button>
         </div>
@@ -98,15 +101,16 @@ export default function TextForm(props) {
         <h1>your text summery</h1>
 
         {/* word and character counter */}
+        {/* filter function helps to remove the empty array */}
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {text.split(" ").filter((element) => { return element.length !== 0 }).length} words and {text.length} characters
         </p>
 
         {/*timer to read text*/}
-        <p>{0.008 * text.split(" ").length} Minutes read</p>
+        <p>{0.008 * text.split(" ").filter((element) => { return element.length !== 0 }).length} Minutes read</p>
 
         <h2>Preview</h2>
-        <p>{text.length > 0 ? text : "enter something in textarea to preview "}</p>
+        <p>{text.length > 0 ? text : "Nothing  in textarea to preview "}</p>
       </div>
     </>
   );
